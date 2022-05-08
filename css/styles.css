@@ -622,7 +622,7 @@ img {
   pointer-events: none;
 }
 .modal-title {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -685,33 +685,48 @@ img {
 .client-text:focus {
   border-color: var(--link-color);
 }
+.license-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
 .license-agreement {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.license-link {
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--link-color);
 }
 .license-agreement span {
   width: 16px;
   height: 15px;
   margin-right: 7px;
   border: 2px solid var(--title-color);
-  border-radius: 3px;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  transition: background-color var(--trans-time), border var(--trans-time),
+    border-color var(--trans-time);
 }
+
 .check-icon {
   fill: transparent;
+  transition: fill var(--trans-time);
 }
-.license-link {
-  color: var(--link-color);
+.check-box:checked + .license-agreement span {
+  background-color: var(--link-color);
+  border: none;
 }
-.license-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
+.check-box:checked + .license-agreement .check-icon {
+  fill: var(--white-color);
+}
+.check-box:focus + .license-agreement span {
+  border-color: var(--link-color);
 }
 .check-box {
   position: absolute;
@@ -725,13 +740,8 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.check-box:checked + .licence-agreement span {
-  background-color: var(--link-color);
-  border: none;
-}
-.check-box:checked + .check-icon {
-  fill: black;
-}
+
+/* Send Button */
 .send-btn {
   display: block;
   width: 200px;
